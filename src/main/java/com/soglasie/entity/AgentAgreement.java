@@ -15,10 +15,10 @@ public class AgentAgreement {
     private int id;
 
     @OneToOne
-    @Column(name = "agent_id", nullable = false)
+    @JoinColumn(name = "agent_id", nullable = false)
     private Agent agentId;
 
-    @Column(name = "LOBid", nullable = false)
+    @Column(name = "LOB_id", nullable = false)
     private LineOfBusiness LOBid;
 
     @Column(name = "rate", nullable = false)

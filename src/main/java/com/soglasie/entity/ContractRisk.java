@@ -14,11 +14,11 @@ public class ContractRisk {
     private int id;
 
     @OneToOne
-    @Column(name = "contract_id", nullable = false)
+    @JoinColumn(name = "contract_id", nullable = false)
     private Contract contractId;
 
     @OneToOne
-    @Column(name = "risk_id", nullable = false)
+    @JoinColumn(name = "risk_id", nullable = false)
     private Risk riskId;
 
     @Column(name = "premium")

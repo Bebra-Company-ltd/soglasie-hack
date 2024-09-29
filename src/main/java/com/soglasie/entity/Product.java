@@ -17,6 +17,6 @@ public class Product {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "LOBid", nullable = false)
+    @Column(name = "LOB_id", nullable = false)
     private LineOfBusiness LOBid;
 }

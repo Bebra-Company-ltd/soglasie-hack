@@ -40,7 +40,7 @@ public class Contract {
     private Double insuranceSum;
 
     @ManyToOne
-    @Column(name = "agent_id", nullable = false)
+    @JoinColumn(name = "agent_id", nullable = false)
     private Agent agentId;
 
     @Column(name = "rate")
@@ -53,14 +53,14 @@ public class Contract {
     private Status status;
 
     @ManyToOne
-    @Column(name = "policy_holder_id")
+    @JoinColumn(name = "policy_holder_id")
     private Face policyHolderId;
 
     @ManyToOne
-    @Column(name = "insured_policy_id")
+    @JoinColumn(name = "insured_policy_id")
     private Face insuredPolicyId;
 
     @ManyToOne
-    @Column(name = "owner_id")
+    @JoinColumn(name = "owner_id")
     private Face ownerId;
 }

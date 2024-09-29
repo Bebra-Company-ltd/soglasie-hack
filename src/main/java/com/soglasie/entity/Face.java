@@ -19,16 +19,16 @@ public class Face {
     @Column(name = "type", nullable = false)
     private Type type;
 
-    @Column(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "secondName")
+    @Column(name = "second_name")
     private String secondName;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "dateBirth")
+    @Column(name = "date_birth")
     private Date dateBirth;
 
     @Column(name = "name")

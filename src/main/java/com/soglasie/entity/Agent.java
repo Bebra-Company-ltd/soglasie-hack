@@ -18,22 +18,22 @@ public class Agent {
     private int id;
 
     @OneToMany
-    @Column(name = "faceIds", nullable = false)
+    @Column(name = "face_ids", nullable = false)
     private List<Face> faceId;
 
     @OneToOne
-    @Column(name = "IKPid", nullable = false)
+    @JoinColumn(name = "IKP_id", nullable = false)
     private IKP IKPid;
 
-    @Column(name = "statusId", nullable = false)
+    @Column(name = "status_id", nullable = false)
     private Status statusId;
 
-    @Column(name = "dateCreate", nullable = false)
+    @Column(name = "date_create", nullable = false)
     private Date dateCreate;
 
-    @Column(name = "dateBegin")
+    @Column(name = "date_begin")
     private Date dateBegin;
 
-    @Column(name = "dateEnd")
+    @Column(name = "date_end")
     private Date dateEnd;
 }
