@@ -1,0 +1,53 @@
+.button {
+	border: none;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+}
+.default {
+	background: linear-gradient(90deg, #f38a20 0%, #f36820 100%);
+	padding: 10px 40px;
+	border-radius: 20px;
+	color: #fff;
+	transition: 0.3s;
+	&:hover {
+		box-shadow: 0px 0px 10px 0px #f38a20;
+	}
+}
+.disabled {
+	background: #707070;
+	cursor: default;
+	&:hover {
+		box-shadow: none;
+	}
+}
+.outlined {
+	background: transparent;
+	border: 1px solid #f38920;
+	padding: 9px 39px;
+	color: #707070;
+	position: relative;
+	transition: 0.3s;
+	&::before {
+		content: '';
+		display: block;
+		border-radius: 30px;
+		width: calc(100% + 2px);
+		height: calc(100% + 2px);
+		position: absolute;
+		top: -1px;
+		left: -1px;
+		background-image: linear-gradient(90deg, #f38a20 0%, #f36820 100%);
+		opacity: 0;
+		transition: 0.3s;
+		z-index: -1;
+	}
+
+	&:hover {
+		color: #fff;
+		border: 1px solid transparent;
+		&::before {
+			opacity: 1;
+		}
+	}
+}
