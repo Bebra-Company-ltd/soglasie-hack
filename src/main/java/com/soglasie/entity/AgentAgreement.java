@@ -1,5 +1,6 @@
 package com.soglasie.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.soglasie.enums.LineOfBusiness;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,6 +17,7 @@ public class AgentAgreement {
 
     @OneToOne
     @JoinColumn(name = "agent_id", nullable = false)
+    @JsonIgnore
     private Agent agentId;
 
     @Column(name = "LOB_id", nullable = false)

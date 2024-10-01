@@ -4,8 +4,7 @@ import com.soglasie.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Date;
-import java.util.List;
+import java.util.Date;
 
 @Entity
 @Table(name = "agents")
@@ -17,13 +16,17 @@ public class Agent {
     @Column(name = "agent_id")
     private int id;
 
-    @OneToMany
-    @Column(name = "face_ids", nullable = false)
-    private List<Face> faceId;
+//    @OneToMany
+//    @Column(name = "face_ids")
+//    private List<Face> faceId;
 
-    @OneToOne
-    @JoinColumn(name = "IKP_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "ikp_id", nullable = false)
     private IKP IKPid;
+
+    @OneToOne(mappedBy = "agentId")
+    @JoinColumn(name = "agent_agreement_id", nullable = false)
+    private AgentAgreement agentAgreement;
 
     @Column(name = "status_id", nullable = false)
     private Status statusId;
@@ -36,4 +39,5 @@ public class Agent {
 
     @Column(name = "date_end")
     private Date dateEnd;
+
 }
