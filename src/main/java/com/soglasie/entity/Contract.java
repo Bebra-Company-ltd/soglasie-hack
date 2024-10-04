@@ -24,22 +24,22 @@ public class Contract {
     @Column(name = "date_sign")
     private Date dateSign;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "products_id", nullable = false)
     private Product productId;
 
-    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @Column(name = "contract_risks_ids")
     private List<Risk> risks;
 
-    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @Column(name = "productMetafields")
     private List<ProductMetafield> productMetafields;
 
-    @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Tariff tariff;
 
-    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<AdditionalTariff> additionalTariffs;
 
     @Column(name = "date_begin")
