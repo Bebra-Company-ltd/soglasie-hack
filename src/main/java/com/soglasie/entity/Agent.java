@@ -36,7 +36,7 @@ public class Agent {
     @Column(name = "date_birth", nullable = false)
     private Date dateBirth;
 
-    @OneToMany(mappedBy = "agent", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "agent", fetch = FetchType.EAGER)
     @Column(name = "face_ids")
     private List<Face> faceId;
 
@@ -49,8 +49,9 @@ public class Agent {
     @JoinColumn(name = "ikp_id", nullable = false)
     private IKP IKPid;
 
-    @OneToMany(mappedBy = "agentId")
+    @OneToMany(mappedBy = "agentId",fetch = FetchType.LAZY)
     @Column(name = "agent_agreements_id", nullable = false)
+    @JsonIgnore
     private List<AgentAgreement> agentAgreements;
 
     @Column(name = "status_id", nullable = false)

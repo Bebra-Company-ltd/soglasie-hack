@@ -5,6 +5,8 @@ import com.soglasie.repository.AgentAgreementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AgentAgreementService {
 
@@ -13,5 +15,9 @@ public class AgentAgreementService {
 
     public AgentAgreement createAgentAgreement(AgentAgreement agentAgreement) {
         return agentAgreementRepository.save(agentAgreement);
+    }
+
+    public List<AgentAgreement> getAllAgentAgreements() {
+        return agentAgreementRepository.findAll();
     }
 }

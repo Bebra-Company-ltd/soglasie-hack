@@ -15,9 +15,9 @@ public class AgentAgreement {
     @Column(name = "agent_agreement_id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "agent_id", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     private Agent agentId;
 
     @Column(name = "LOB_id", nullable = false)
