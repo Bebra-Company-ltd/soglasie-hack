@@ -1,6 +1,7 @@
 package com.soglasie.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.soglasie.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -37,11 +38,9 @@ public class Agent {
     private Date dateBirth;
 
     @OneToMany(mappedBy = "agent", fetch = FetchType.EAGER)
-    @Column(name = "face_ids")
     private List<Face> faceId;
 
-    @OneToMany(mappedBy = "agentId", fetch = FetchType.LAZY)
-    @Column(name = "contracts_ids")
+    @OneToMany(mappedBy = "agentId", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Contract> contracts;
 
@@ -49,8 +48,7 @@ public class Agent {
     @JoinColumn(name = "ikp_id", nullable = false)
     private IKP IKPid;
 
-    @OneToMany(mappedBy = "agentId",fetch = FetchType.LAZY)
-    @Column(name = "agent_agreements_id", nullable = false)
+    @OneToMany(mappedBy = "agentId", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<AgentAgreement> agentAgreements;
 
@@ -67,3 +65,4 @@ public class Agent {
     private Date dateEnd;
 
 }
+

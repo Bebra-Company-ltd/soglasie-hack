@@ -19,10 +19,10 @@ public class FaceService {
     @Autowired
     private AgentRepository agentRepository;
 
-    public Face createFace(Face face) {
-
-        return faceRepository.save(face);
+    public Face createFace(Face faceRequest) {
+        return faceRepository.save(faceRequest);
     }
+
 
     public List<Face> getAllFaces() {
         return faceRepository.findAll();
