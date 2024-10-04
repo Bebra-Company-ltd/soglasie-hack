@@ -29,4 +29,8 @@ public class IKPService {
     public void deleteIKPById(int id) {
         iKPRepository.deleteById(id);
     }
+
+    public IKP updateIKP(IKP iKP) {
+        return iKPRepository.save(iKP);
+    }
 }

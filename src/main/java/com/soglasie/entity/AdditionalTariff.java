@@ -1,5 +1,7 @@
 package com.soglasie.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,6 +26,8 @@ public class AdditionalTariff {
     @Column(name = "totalInsuranceSum")
     private Double totalInsuranceSum;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+//    @JsonIgnore
+    @JsonBackReference
     private Product product;
 }

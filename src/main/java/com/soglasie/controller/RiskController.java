@@ -34,4 +34,9 @@ public class RiskController {
     public void deleteRiskById(@PathVariable int id) {
         riskService.deleteRiskById(id);
     }
+
+    @PatchMapping("/updateRisk")
+    public Risk updateRisk(@RequestBody Risk risk) {
+        return riskService.updateRisk(risk);
+    }
 }

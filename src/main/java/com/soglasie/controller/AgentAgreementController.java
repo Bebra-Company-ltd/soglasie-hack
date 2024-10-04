@@ -23,4 +23,9 @@ public class AgentAgreementController {
     public List<AgentAgreement> getAllAgentAgreements() {
         return agentAgreementService.getAllAgentAgreements();
     }
+
+    @PatchMapping("/updateAgentAgreement")
+    public AgentAgreement updateAgentAgreement(@RequestBody AgentAgreement agentAgreement) {
+        return agentAgreementService.updateAgentAgreement(agentAgreement);
+    }
 }

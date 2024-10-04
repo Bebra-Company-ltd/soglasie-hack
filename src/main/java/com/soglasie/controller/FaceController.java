@@ -34,4 +34,9 @@ public class FaceController {
     public void deleteFaceById(@PathVariable int id) {
         faceService.deleteFaceById(id);
     }
+
+    @PatchMapping("/updateFace")
+    public Face updateFace(@RequestBody Face face) {
+        return faceService.updateFace(face);
+    }
 }

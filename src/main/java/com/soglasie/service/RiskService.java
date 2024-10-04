@@ -29,4 +29,8 @@ public class RiskService {
     public void deleteRiskById(int id) {
         riskRepository.deleteById(id);
     }
+
+    public Risk updateRisk(Risk risk) {
+        return riskRepository.save(risk);
+    }
 }

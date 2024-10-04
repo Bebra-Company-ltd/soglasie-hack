@@ -34,4 +34,9 @@ public class ProductMetafieldController {
     public void deleteProductMetafieldById(@PathVariable int id) {
         productMetafieldService.deleteProductMetafieldById(id);
     }
+
+    @PatchMapping("/updateProductMetafield")
+    public ProductMetafield updateProductMetafield(@RequestBody ProductMetafield productMetafield) {
+        return productMetafieldService.updateProductMetafield(productMetafield);
+    }
 }

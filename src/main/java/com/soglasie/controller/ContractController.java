@@ -34,4 +34,9 @@ public class ContractController {
     public void deleteContractById(@PathVariable int id) {
         contractService.deleteContractById(id);
     }
+
+    @PatchMapping("/updateContract")
+    public Contract updateContract(@RequestBody Contract contract) {
+        return contractService.updateContract(contract);
+    }
 }

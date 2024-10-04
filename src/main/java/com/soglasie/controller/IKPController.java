@@ -34,4 +34,9 @@ public class IKPController {
     public void deleteIKPById(@PathVariable int id) {
         ikpService.deleteIKPById(id);
     }
+
+    @PatchMapping("/updateIKP")
+    public IKP updateIKP(@RequestBody IKP ikp) {
+        return ikpService.updateIKP(ikp);
+    }
 }

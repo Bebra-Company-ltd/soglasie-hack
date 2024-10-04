@@ -36,4 +36,9 @@ public class AgentController {
     public Optional<Agent> getAgentById(@PathVariable Integer id) {
         return agentService.getAgentById(id);
     }
+
+    @PatchMapping("/updateAgent")
+    public Agent updateAgent(@RequestBody Agent agent) {
+        return agentService.updateAgent(agent);
+    }
 }
