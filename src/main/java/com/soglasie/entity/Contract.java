@@ -1,5 +1,6 @@
 package com.soglasie.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.soglasie.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,9 +24,23 @@ public class Contract {
     @Column(name = "date_sign")
     private Date dateSign;
 
-    @OneToMany
-    @Column(name = "products_id", nullable = false)
-    private List<Product> productsId;
+    @OneToOne
+    @JoinColumn(name = "products_id", nullable = false)
+    private Product productId;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "contract_risks_ids")
+    private List<Risk> risks;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "productMetafields")
+    private List<ProductMetafield> productMetafields;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Tariff tariff;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AdditionalTariff> additionalTariffs;
 
     @Column(name = "date_begin")
     private Date dateBegin;
@@ -39,7 +54,7 @@ public class Contract {
     @Column(name = "insurance_sum")
     private Double insuranceSum;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "agent_id", nullable = false)
     private Agent agentId;
 

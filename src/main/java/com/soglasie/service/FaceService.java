@@ -1,6 +1,8 @@
 package com.soglasie.service;
 
+import com.soglasie.entity.Agent;
 import com.soglasie.entity.Face;
+import com.soglasie.repository.AgentRepository;
 import com.soglasie.repository.FaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,11 @@ public class FaceService {
     @Autowired
     private FaceRepository faceRepository;
 
+    @Autowired
+    private AgentRepository agentRepository;
+
     public Face createFace(Face face) {
+
         return faceRepository.save(face);
     }
 

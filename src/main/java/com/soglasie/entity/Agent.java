@@ -1,10 +1,12 @@
 package com.soglasie.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.soglasie.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "agents")
@@ -16,17 +18,40 @@ public class Agent {
     @Column(name = "agent_id")
     private int id;
 
-//    @OneToMany
-//    @Column(name = "face_ids")
-//    private List<Face> faceId;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @Column(name = "second_name", nullable = false)
+    private String secondName;
+
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
+
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Column(name = "phone", nullable = false)
+    private String phone;
+
+    @Column(name = "date_birth", nullable = false)
+    private Date dateBirth;
+
+    @OneToMany(mappedBy = "agent", fetch = FetchType.LAZY)
+    @Column(name = "face_ids")
+    private List<Face> faceId;
+
+    @OneToMany(mappedBy = "agentId", fetch = FetchType.LAZY)
+    @Column(name = "contracts_ids")
+    @JsonIgnore
+    private List<Contract> contracts;
 
     @ManyToOne
     @JoinColumn(name = "ikp_id", nullable = false)
     private IKP IKPid;
 
-    @OneToOne(mappedBy = "agentId")
-    @JoinColumn(name = "agent_agreement_id", nullable = false)
-    private AgentAgreement agentAgreement;
+    @OneToMany(mappedBy = "agentId")
+    @JoinColumn(name = "agent_agreements_id", nullable = false)
+    private List<AgentAgreement> agentAgreements;
 
     @Column(name = "status_id", nullable = false)
     private Status statusId;
