@@ -24,7 +24,7 @@ public class Contract {
     @Column(name = "date_sign")
     private Date dateSign;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "products_id", nullable = false)
     private Product productId;
 
