@@ -22,18 +22,18 @@ public class Product {
     @Column(name = "LOB_id", nullable = false)
     private LineOfBusiness LOBid;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @Column(name = "risk_ids")
     private List<Risk> risks;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @Column(name = "product_metafields")
     private List<ProductMetafield> productMetafields;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Tariff> tariffs;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<AdditionalTariff> additionalTariffs;
 
     @Column(name = "percentForDay")

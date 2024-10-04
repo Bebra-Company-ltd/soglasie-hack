@@ -68,4 +68,8 @@ public class AgentService {
         return agentRepository.findById(id);
     }
 
+    public Agent updateAgent(Agent request) {
+        return agentRepository.save(request);
+    }
+
 }

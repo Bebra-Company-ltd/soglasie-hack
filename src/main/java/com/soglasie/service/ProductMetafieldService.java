@@ -29,4 +29,8 @@ public class ProductMetafieldService {
     public void deleteProductMetafieldById(int id) {
         productMetafieldReposirory.deleteById(id);
     }
+
+    public ProductMetafield updateProductMetafield(ProductMetafield productMetafield) {
+        return productMetafieldReposirory.save(productMetafield);
+    }
 }

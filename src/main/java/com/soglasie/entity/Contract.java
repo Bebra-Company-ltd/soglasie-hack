@@ -28,18 +28,18 @@ public class Contract {
     @JoinColumn(name = "products_id", nullable = false)
     private Product productId;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true, fetch = FetchType.EAGER)
     @Column(name = "contract_risks_ids")
     private List<Risk> risks;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true, fetch = FetchType.EAGER)
     @Column(name = "productMetafields")
     private List<ProductMetafield> productMetafields;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.MERGE, orphanRemoval = true)
     private Tariff tariff;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<AdditionalTariff> additionalTariffs;
 
     @Column(name = "date_begin")

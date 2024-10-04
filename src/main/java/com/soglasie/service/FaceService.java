@@ -35,4 +35,8 @@ public class FaceService {
     public void deleteFaceById(int id) {
         faceRepository.deleteById(id);
     }
+
+    public Face updateFace(Face faceRequest) {
+        return faceRepository.save(faceRequest);
+    }
 }

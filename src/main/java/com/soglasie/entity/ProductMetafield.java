@@ -1,5 +1,7 @@
 package com.soglasie.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -29,5 +31,6 @@ public class ProductMetafield {
     private Double rate;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Product product;
 }

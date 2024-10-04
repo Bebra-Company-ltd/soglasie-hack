@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AgentAgreementService {
@@ -19,5 +20,17 @@ public class AgentAgreementService {
 
     public List<AgentAgreement> getAllAgentAgreements() {
         return agentAgreementRepository.findAll();
+    }
+
+    public Optional<AgentAgreement> getAgentAgreementById(int id) {
+        return agentAgreementRepository.findById(id);
+    }
+
+    public void deleteAgentAgreementById(int id) {
+        agentAgreementRepository.deleteById(id);
+    }
+
+    public AgentAgreement updateAgentAgreement(AgentAgreement agentAgreement) {
+        return agentAgreementRepository.save(agentAgreement);
     }
 }

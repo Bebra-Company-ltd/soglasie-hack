@@ -28,4 +28,9 @@ public class Risk {
 
     @Column(name = "insurance_sum")
     private Double insuranceSum;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+//    @JsonIgnore
+    @JsonIgnore
+    private Product product;
 }

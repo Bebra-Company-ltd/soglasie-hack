@@ -122,4 +122,8 @@ public class ContractService {
     public void deleteContractById(int id) {
         contractRepository.deleteById(id);
     }
+
+    public Contract updateContract(Contract contract) {
+        return contractRepository.save(contract);
+    }
 }

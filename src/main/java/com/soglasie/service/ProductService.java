@@ -1,7 +1,6 @@
 package com.soglasie.service;
 
-import com.soglasie.entity.Product;
-import com.soglasie.entity.Risk;
+import com.soglasie.entity.*;
 import com.soglasie.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,4 +45,48 @@ public class ProductService {
     public void deleteProduct(int id) {
         productRepository.deleteById(id);
     }
+
+    public Product updateProduct(Product product) {
+        // Сохраняем связанные сущности, если они ещё не существуют в базе данных
+        if (product.getRisks() != null) {
+            for (Risk risk : product.getRisks()) {
+                if (risk.getId() == 0) { // Если ID равен 0, значит это новая сущность
+                    risk.setProduct(product); // Устанавливаем ссылку на Product
+                    // Здесь вам нужно сохранить риск в репозитории, например:
+                     riskRepository.save(risk);
+                }
+            }
+        }
+
+        if (product.getProductMetafields() != null) {
+            for (ProductMetafield metafield : product.getProductMetafields()) {
+                if (metafield.getId() == 0) {
+                    metafield.setProduct(product);
+                    // Здесь вам нужно сохранить метаполе в репозитории, например:
+                    productMetafieldReposirory.save(metafield);
+                }
+            }
+        }
+
+        if (product.getTariffs() != null) {
+            for (Tariff tariff : product.getTariffs()) {
+                if (tariff.getId() == 0) {
+                    tariff.setProduct(product);
+                     tariffRepository.save(tariff);
+                }
+            }
+        }
+
+        if (product.getAdditionalTariffs() != null) {
+            for (AdditionalTariff additionalTariff : product.getAdditionalTariffs()) {
+                if (additionalTariff.getId() == 0) {
+                    additionalTariff.setProduct(product);
+                     additionalTariffRepository.save(additionalTariff);
+                }
+            }
+        }
+
+        return productRepository.save(product); // Теперь сохраняем основной продукт
+    }
+
 }
