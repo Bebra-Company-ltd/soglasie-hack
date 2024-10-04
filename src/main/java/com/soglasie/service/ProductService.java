@@ -1,7 +1,8 @@
 package com.soglasie.service;
 
 import com.soglasie.entity.Product;
-import com.soglasie.repository.ProductRepository;
+import com.soglasie.entity.Risk;
+import com.soglasie.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,23 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private RiskRepository riskRepository;
+
+    @Autowired
+    private TariffRepository tariffRepository;
+
+    @Autowired
+    private AdditionalTariffRepository additionalTariffRepository;
+
+    @Autowired
+    private ProductMetafieldReposirory productMetafieldReposirory;
+
     public Product createProduct(Product product) {
+        riskRepository.saveAll(product.getRisks());
+        productMetafieldReposirory.saveAll(product.getProductMetafields());
+        tariffRepository.saveAll(product.getTariffs());
+        additionalTariffRepository.saveAll(product.getAdditionalTariffs());
         return productRepository.save(product);
     }
 

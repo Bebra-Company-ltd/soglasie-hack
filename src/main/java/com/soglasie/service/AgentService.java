@@ -8,6 +8,7 @@ import com.soglasie.repository.AgentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,12 @@ public class AgentService {
     public Agent createAgent(Agent request, LineOfBusiness lineOfBusiness, Double rate) {
         Agent agent = new Agent();
 
+        agent.setFirstName(request.getFirstName());
+        agent.setLastName(request.getLastName());
+        agent.setEmail(request.getEmail());
+        agent.setSecondName(request.getSecondName());
+        agent.setPhone(request.getPhone());
+        agent.setDateBirth(request.getDateBirth());
         agent.setIKPid(request.getIKPid());
         agent.setStatusId(request.getStatusId());
         agent.setDateCreate(request.getDateCreate());
@@ -47,8 +54,13 @@ public class AgentService {
 
     public void deleteAgentById(Integer id) {
         Agent agent = agentRepository.findById(id).get();
-        AgentAgreement agentAgreement = agentAgreementRepository.findById(agent.getAgentAgreement().getId()).orElse(null);
-        agentAgreementRepository.deleteById(agentAgreement.getId());
+
+        List<AgentAgreement> agentAgreements = agentAgreementRepository.findByAgentId(agent);
+
+        for (AgentAgreement agentAgreement1 : agentAgreements) {
+            agentAgreementRepository.deleteById(agentAgreement1.getId());
+        }
+
         agentRepository.deleteById(id);
     }
 

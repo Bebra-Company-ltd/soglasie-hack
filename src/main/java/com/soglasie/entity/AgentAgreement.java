@@ -15,7 +15,7 @@ public class AgentAgreement {
     @Column(name = "agent_agreement_id")
     private int id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "agent_id", nullable = false)
     @JsonIgnore
     private Agent agentId;

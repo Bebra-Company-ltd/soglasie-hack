@@ -1,5 +1,7 @@
 package com.soglasie.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,4 +17,15 @@ public class Risk {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @OneToOne
+    @JoinColumn(name = "contract_id")
+    @JsonIgnore
+    private Contract contractId;
+
+    @Column(name = "rate")
+    private Double rate;
+
+    @Column(name = "insurance_sum")
+    private Double insuranceSum;
 }
