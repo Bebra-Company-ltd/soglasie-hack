@@ -79,7 +79,7 @@ public class ContractService {
 
         Agent agent = agentRepository.findById(request.getAgentId().getId()).get();
 
-        Double rate = (totalPercentForRisks + agent.getAgentAgreement().getRate()) * premium;
+//        Double rate = (totalPercentForRisks + agent.getAgentAgreement().getRate()) * premium;
 
 
         // Установка данных контракта

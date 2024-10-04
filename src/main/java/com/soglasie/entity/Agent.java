@@ -50,7 +50,7 @@ public class Agent {
     private IKP IKPid;
 
     @OneToMany(mappedBy = "agentId")
-    @JoinColumn(name = "agent_agreements_id", nullable = false)
+    @Column(name = "agent_agreements_id", nullable = false)
     private List<AgentAgreement> agentAgreements;
 
     @Column(name = "status_id", nullable = false)
