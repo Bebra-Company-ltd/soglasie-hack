@@ -23,7 +23,7 @@ public class Face {
     private Type type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore// Не сериализуем агента в лице
+    @JsonBackReference// Не сериализуем агента в лице
     private Agent agent;
 
     @Column(name = "first_name")
