@@ -1,0 +1,12 @@
+.header {
+	display: grid;
+	align-items: end;
+	margin-bottom: 40px;
+	grid-template-columns: 1.5fr repeat(4, 1fr);
+	grid-template-rows: min-content min-content;
+	column-gap: 30px;
+}
+
+.select {
+	flex-grow: 1;
+}

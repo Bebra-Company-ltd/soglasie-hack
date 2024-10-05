@@ -15,7 +15,7 @@ export const Tariff = ({ deleteTariff, tariff }) => {
 					type='headless-scale'
 					onClick={() => deleteTariff(tariff.name)}
 				>
-					<img src={crossIcon} alt='Удалить риск' />
+					<img src={crossIcon} alt='Удалить тариф' />
 				</Button>
 			</div>
 		</div>

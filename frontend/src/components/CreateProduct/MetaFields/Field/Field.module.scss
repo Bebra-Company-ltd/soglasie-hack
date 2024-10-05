@@ -1,0 +1,18 @@
+.metafield {
+	padding: 20px 0;
+	text-align: center;
+	position: relative;
+	border: 1px solid #f36820;
+	display: grid;
+	align-items: center;
+	grid-template-columns: repeat(3, 1fr);
+	font-weight: 600;
+}
+
+.delete {
+	position: absolute;
+	display: flex;
+	top: 0;
+	right: 0;
+	transform: translate(50%, -50%);
+}

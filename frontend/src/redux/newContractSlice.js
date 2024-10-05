@@ -1,22 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-	id: null,
-	lobid: '',
-	name: '',
-	percentForDay: '',
-	risks: [],
-	tariffs: [],
-	additionalTariffs: [],
-	productMetafields: [],
+	product: {},
+	contract: {
+		risks: [],
+	},
 }
 
-export const productSlice = createSlice({
-	name: 'product',
+export const newContractSlice = createSlice({
+	name: 'newContract',
 	initialState,
 	reducers: {
 		setProduct: (state, action) => {
-			return action.payload
+			state.product = action.payload
 		},
 		resetProduct: () => initialState,
 		setLob: (state, action) => {
@@ -32,10 +28,7 @@ export const productSlice = createSlice({
 			state.percentForDay = action.payload
 		},
 		setRisks: (state, action) => {
-			state.risks = action.payload
-		},
-		addRisk: (state, action) => {
-			state.risks.push(action.payload)
+			state.contract.risks = action.payload
 		},
 		setTariffs: (state, action) => {
 			state.tariffs = action.payload
@@ -76,6 +69,6 @@ export const {
 	setProduct,
 	addMetaField,
 	setMetaFields,
-} = productSlice.actions
+} = newContractSlice.actions
 
-export default productSlice.reducer
+export default newContractSlice.reducer

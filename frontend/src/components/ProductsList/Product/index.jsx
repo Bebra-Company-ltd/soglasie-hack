@@ -47,7 +47,6 @@ export const Product = ({ product }) => {
 		dispatch(setIsEditing(true))
 		dispatch(setProduct({ ...product }))
 		navigate('/create-product')
-		console.log(product)
 	}
 
 	const handleDeleteProduct = () => {
@@ -55,6 +54,21 @@ export const Product = ({ product }) => {
 		if (isConfirm) {
 			deleteProduct(product.id)
 		}
+	}
+
+	const metafieldType = {
+		stringValue: 'Строка',
+		doubleValue: 'Число',
+		booleanValue: 'Чекбокс',
+	}
+
+	function getValueFromFirstObject(obj1, obj2) {
+		for (let key in obj1) {
+			if (obj2[key] !== null) {
+				return obj1[key]
+			}
+		}
+		return null
 	}
 
 	return (
@@ -110,6 +124,12 @@ export const Product = ({ product }) => {
 							<li key={metafield.id}>
 								<p>Название: {metafield.name}</p>
 								<p>Премия: {metafield.rate}</p>
+								<p>
+									{getValueFromFirstObject(
+										metafieldType,
+										metafield
+									)}
+								</p>
 							</li>
 						))}
 					</ul>

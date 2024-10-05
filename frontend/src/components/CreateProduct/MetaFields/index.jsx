@@ -4,27 +4,55 @@ import { Input } from '@/components/UI/Input'
 import styles from './MetaFields.module.scss'
 import ButtonGroup from '@/components/UI/ButtonGroup'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addMetaField } from '@/redux/productSlice'
+import { FieldsList } from './FieldsList'
 
 export const MetaFields = () => {
-	const [selectedType, setSelectedType] = useState('string')
+	const [metaFieldType, setMetaFieldType] = useState({ stringValue: '' })
+	const [metaFieldName, setMetaFieldName] = useState('')
+	const [metaFieldRate, setMetaFieldRate] = useState('')
+	const dispatch = useDispatch()
 	const buttons = [
 		{
 			label: 'Строка',
-			type: 'string',
+			type: 'stringValue',
 		},
 		{
 			label: 'Число',
-			type: 'int',
+			type: 'doubleValue',
 		},
 		{
 			label: 'Чекбокс',
-			type: 'checkbox',
+			type: 'booleanValue',
 		},
 	]
 
 	const handleButtonClick = (type) => {
-		setSelectedType(type)
-		console.log(selectedType)
+		switch (type) {
+			case 'stringValue':
+				setMetaFieldType({ stringValue: '' })
+				break
+			case 'doubleValue':
+				setMetaFieldType({ doubleValue: 0 })
+				break
+			case 'booleanValue':
+				setMetaFieldType({ booleanValue: false })
+				break
+			default:
+				setMetaFieldType({ stringValue: '' })
+				break
+		}
+	}
+
+	const handleAddMetaField = () => {
+		dispatch(
+			addMetaField({
+				name: metaFieldName,
+				rate: metaFieldRate,
+				...metaFieldType,
+			})
+		)
 	}
 
 	return (
@@ -39,11 +67,26 @@ export const MetaFields = () => {
 				</div>
 			</div>
 			<div className={styles.addField}>
-				<div className={styles.addInput}>
-					<Input placeholder='Название поля' />
+				<div className={styles.addInputs}>
+					<Input
+						value={metaFieldName}
+						onChange={(e) => setMetaFieldName(e.target.value)}
+						placeholder='Название поля'
+					/>
+					<Input
+						name='rate'
+						type='number'
+						min='0'
+						value={metaFieldRate}
+						onChange={(e) => setMetaFieldRate(e.target.value)}
+						placeholder='Комиссия (%)'
+					/>
 				</div>
-				<Button type='outlined'>Добавить</Button>
+				<Button type='outlined' onClick={handleAddMetaField}>
+					Добавить
+				</Button>
 			</div>
+			<FieldsList />
 		</div>
 	)
 }
