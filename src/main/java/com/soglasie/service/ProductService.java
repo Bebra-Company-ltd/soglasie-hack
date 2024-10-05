@@ -2,6 +2,7 @@ package com.soglasie.service;
 
 import com.soglasie.entity.*;
 import com.soglasie.repository.*;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,15 +36,17 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productRepository.findByIsArchivedFalse();
     }
 
     public Optional<Product> getProductById(int id) {
         return productRepository.findById(id);
     }
 
-    public void deleteProduct(int id) {
-        productRepository.deleteById(id);
+    public void archiveProductById(int id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Product not found"));
+        product.setIsArchived(true);
+        productRepository.save(product);
     }
 
     public Product updateProduct(Product product) {

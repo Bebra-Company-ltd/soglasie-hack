@@ -39,4 +39,7 @@ public class Product {
     @Column(name = "percentForDay")
     private Double percentForDay;
 
+    @Column(name = "is_archived")
+    private Boolean isArchived = false;
+
 }
