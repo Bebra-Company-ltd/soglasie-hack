@@ -15,7 +15,7 @@ const Header = () => {
 					{isEditing ? 'Изменить' : 'Создать'} страховой продукт
 				</NavLink>
 				<NavLink to='/products-list'>Существующие продукты</NavLink>
-				<NavLink to='/login'>Отчетность по продуктам</NavLink>
+				<NavLink to='/products-stats'>Отчетность по продуктам</NavLink>
 			</nav>
 
 			<Avatar />

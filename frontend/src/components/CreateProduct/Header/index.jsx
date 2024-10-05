@@ -9,9 +9,10 @@ export const Header = () => {
 	const { lobid, name, percentForDay } = useSelector((state) => state.product)
 
 	const lobOptions = [
-		{ value: 'travel', label: 'Путешествие' },
-		{ value: 'CASCO', label: 'Здоровье' },
-		{ value: 'estate', label: 'Имущество' },
+		{ value: 'THI', label: 'Страхование путешественников' },
+		{ value: 'CASCO', label: 'КАСКО' },
+		{ value: 'OSAGO', label: 'ОСАГО' },
+		{ value: 'ACCIDENT ', label: 'Страхование от несчастных случаев' },
 	]
 
 	const handleChange = (event) => {
@@ -31,7 +32,7 @@ export const Header = () => {
 			</div>
 
 			<Input
-				placeholder='Ставка в день'
+				placeholder='Ставка в день (%)'
 				type='number'
 				min='0'
 				value={percentForDay}

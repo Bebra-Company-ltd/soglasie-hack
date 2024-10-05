@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './ButtonGroup.module.scss'
 
 const ButtonGroup = ({ buttons, onButtonClick }) => {
-	const [activeType, setActiveType] = useState('string')
+	const [activeType, setActiveType] = useState('stringValue')
 
 	const handleClick = (type) => {
 		setActiveType(type)

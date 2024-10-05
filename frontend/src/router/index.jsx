@@ -6,6 +6,8 @@ import { SignIn } from '../components/SignIn'
 import { SignUp } from '../components/SignUp'
 import { CreateProduct } from './routes/CreateProduct'
 import { ProductsList } from './routes/ProductsList'
+import { ProductsStats } from './routes/ProductsStats'
+import { CreateContract } from './routes/CreateContract'
 // import { RequireAuth } from './components/RequireAuth'
 
 export const router = createBrowserRouter([
@@ -28,6 +30,22 @@ export const router = createBrowserRouter([
 				element: (
 					// <RequireAuth>
 					<ProductsList />
+					// </RequireAuth>
+				),
+			},
+			{
+				path: '/products-stats',
+				element: (
+					// <RequireAuth>
+					<ProductsStats />
+					// </RequireAuth>
+				),
+			},
+			{
+				path: '/create-contract',
+				element: (
+					// <RequireAuth>
+					<CreateContract />
 					// </RequireAuth>
 				),
 			},
