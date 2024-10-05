@@ -44,7 +44,7 @@ public class AgentController {
         return agentService.updateAgent(agent);
     }
 
-    @GetMapping("/getAgentSalesAnalytics")
+    @PostMapping("/getAgentSalesAnalytics")
     public List<Contract> getAgentSalesAnalytics(@RequestBody AgentAnaliticsModel agentAnaliticsModel) {
         return agentService.getAgentSalesAnalytics(agentAnaliticsModel);
     }

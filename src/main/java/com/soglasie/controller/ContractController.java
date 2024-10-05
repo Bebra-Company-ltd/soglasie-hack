@@ -46,7 +46,7 @@ public class ContractController {
         return contractService.updateContract(contract);
     }
 
-    @GetMapping("/getContractsByCriteria")
+    @PostMapping("/getContractsByCriteria")
     public Map<String, List<Contract>> getContractsByCriteria(@RequestBody ContractAnaliticsModel contractAnaliticsModel) {
         return contractService.getContractsByCriteria(contractAnaliticsModel);
     }
