@@ -162,7 +162,7 @@ public class ContractService {
         // Фильтруем контракты по критериям и распределяем по статусам
         contracts.stream()
                 .filter(contract -> {
-                    boolean isAgentValid = agentFilter == null || contract.getAgentId().equals(agentFilter);
+                    boolean isAgentValid = agentFilter == null || contract.getAgentId().getId() == agentFilter.getId();
                     System.out.println(isAgentValid);
 
                     boolean isLobValid = lobFilter == null || contract.getProductId().getLOBid().equals(lobFilter);
