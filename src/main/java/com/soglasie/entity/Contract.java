@@ -25,9 +25,9 @@ public class Contract {
     @Column(name = "date_sign")
     private Date dateSign;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "products_id", nullable = false)
-    @JsonBackReference
+//    @JsonBackReference
     private Product productId;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
