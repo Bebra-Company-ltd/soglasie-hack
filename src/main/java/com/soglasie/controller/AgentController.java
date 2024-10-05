@@ -1,7 +1,9 @@
 package com.soglasie.controller;
 
 import com.soglasie.entity.Agent;
+import com.soglasie.entity.Contract;
 import com.soglasie.enums.LineOfBusiness;
+import com.soglasie.model.AgentAnaliticsModel;
 import com.soglasie.service.AgentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,5 +42,10 @@ public class AgentController {
     @PatchMapping("/updateAgent")
     public Agent updateAgent(@RequestBody Agent agent) {
         return agentService.updateAgent(agent);
+    }
+
+    @GetMapping("/getAgentSalesAnalytics")
+    public List<Contract> getAgentSalesAnalytics(@RequestBody AgentAnaliticsModel agentAnaliticsModel) {
+        return agentService.getAgentSalesAnalytics(agentAnaliticsModel);
     }
 }

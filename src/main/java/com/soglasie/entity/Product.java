@@ -38,4 +38,5 @@ public class Product {
 
     @Column(name = "percentForDay")
     private Double percentForDay;
+
 }
