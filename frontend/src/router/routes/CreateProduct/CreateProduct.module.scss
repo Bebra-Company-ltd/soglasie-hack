@@ -1,0 +1,13 @@
+.content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 95px;
+	row-gap: 80px;
+}
+.btns {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 55px;
+	gap: 15px;
+}

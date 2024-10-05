@@ -1,0 +1,34 @@
+.insuranceType {
+	margin-bottom: 30px;
+}
+
+.typeTitle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 25px;
+	margin-bottom: 10px;
+}
+
+.titleText {
+	border: 1px solid #f38920;
+	padding: 6px;
+	border-radius: 20px;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.deleteBtn {
+	rotate: 45deg;
+}
+
+.typeRange {
+	display: flex;
+	gap: 25px;
+	justify-content: space-between;
+	p {
+		border: 1px solid #f38920;
+		padding: 10px 15px;
+		border-radius: 20px;
+	}
+}

@@ -1,14 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './counterSlice'
+import productReducer from './productSlice'
+import popupsReducer from './popupsSlice'
 import userReducer from './userSlice'
-import { userApi } from '../api/user'
+import { userApi } from '@/api/user'
+import { productApi } from '@/api/product'
 
 export const store = configureStore({
 	reducer: {
-		counter: counterReducer,
+		product: productReducer,
+		popups: popupsReducer,
 		user: userReducer,
 		[userApi.reducerPath]: userApi.reducer,
+		[productApi.reducerPath]: productApi.reducer,
 	},
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware().concat(userApi.middleware),
+		getDefaultMiddleware().concat(
+			userApi.middleware,
+			productApi.middleware
+		),
 })

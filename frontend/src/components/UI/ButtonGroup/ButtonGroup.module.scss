@@ -1,0 +1,30 @@
+.buttonGroup {
+	display: flex;
+	gap: 0;
+	border: 1px solid #ff7e33;
+	border-radius: 25px;
+	padding: 2px;
+	overflow: hidden;
+}
+
+.button {
+	flex: 1;
+	padding: 5px 7px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: #333;
+	font-size: 16px;
+	text-align: center;
+	transition: color 0.3s ease;
+}
+
+.button:hover {
+	color: #ff7e33;
+}
+
+.button.active {
+	background: linear-gradient(90deg, #f38a20 0%, #f36820 100%);
+	color: white;
+	border-radius: 25px;
+}

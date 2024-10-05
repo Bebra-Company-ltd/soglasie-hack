@@ -1,0 +1,15 @@
+.risk {
+	box-shadow: 0px 4px 20px 0px #88411c4d;
+	padding: 20px 40px;
+	flex-basis: calc(50% - 25px);
+	text-align: center;
+	position: relative;
+}
+
+.delete {
+	position: absolute;
+	display: flex;
+	top: 0;
+	right: 0;
+	transform: translate(50%, -50%);
+}

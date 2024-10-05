@@ -1,0 +1,14 @@
+.header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 35px;
+	position: relative;
+}
+.risks {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px 25px;
+	max-width: 600px;
+}
+

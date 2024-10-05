@@ -12,13 +12,27 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	font-variation-settings: 'wdth' 100;
+	line-height: 20px;
+	color: #333;
+}
+
+.container {
+	max-width: 1220px;
+	width: 100%;
+	padding: 10px;
+	margin: 0 auto;
 }
 
 button,
 input {
 	margin: 0;
 	padding: 0;
+	border: none;
+	background-color: transparent;
 	font: inherit;
+}
+button {
+	cursor: pointer;
 }
 
 img {

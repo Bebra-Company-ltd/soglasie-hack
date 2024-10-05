@@ -1,0 +1,51 @@
+.product {
+	display: grid;
+	grid-template-rows: repeat(3, min-content);
+	border: 1px solid #f38920;
+	border-radius: 30px;
+	align-items: center;
+}
+
+.lobId {
+	border: 1px solid #f38920;
+	border-radius: 30px;
+	padding: 6px 60px;
+	text-align: center;
+}
+
+.row,
+.btns,
+.title {
+	display: grid;
+	align-items: center;
+	padding: 20px 30px;
+
+	grid-template-columns: 1fr 1fr;
+	gap: 50px;
+}
+
+.title {
+	border-bottom: 1px solid #f38920;
+}
+
+.btns {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.row:not(:last-child) {
+	border-bottom: 1px solid #f38920;
+}
+
+.list {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	li {
+		position: relative;
+		display: inline-block;
+		border: 1px solid #f38920;
+		padding: 10px;
+		border-radius: 10px;
+	}
+}
