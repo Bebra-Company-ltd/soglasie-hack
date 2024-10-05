@@ -1,0 +1,45 @@
+{
+	"name": "Product name (new)",
+	"risks": [{ "id": 1, "name": "afdf", "rate": 14.1, "insuranceSum": 14.2 }],
+	"productMetafields": [
+		{
+			"id": 1,
+			"name": "meta",
+			"stringValue": "value",
+			"doubleValue": null,
+			"booleanValue": null,
+			"rate": 14.1
+		},
+		{
+			"id": 2,
+			"name": "meta1",
+			"stringValue": null,
+			"doubleValue": 14.2,
+			"booleanValue": null,
+			"rate": 14.88
+		},
+		{
+			"id": 3,
+			"name": "meta3",
+			"stringValue": null,
+			"doubleValue": null,
+			"booleanValue": true,
+			"rate": 13.37
+		}
+	],
+	"tariffs": [
+		{ "id": 1, "name": "base", "insuranceSum": 14.2, "rate": 1.2 },
+		{ "id": 2, "name": "super", "insuranceSum": 1455, "rate": 1.3 }
+	],
+	"additionalTariffs": [
+		{
+			"id": 1,
+			"name": "afsdfg",
+			"minInsuranceSum": 3,
+			"maxInsuranceSum": 5,
+			"totalInsuranceSum": null
+		}
+	],
+	"percentForDay": 0.05,
+	"lobid": "CASCO"
+}

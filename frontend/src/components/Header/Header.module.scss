@@ -1,12 +1,14 @@
 .header {
 	display: flex;
 	padding: 15px;
-	height: 80px;
+	min-height: 80px;
 	align-items: center;
 	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .navigation {
 	display: flex;
-	gap: 75px;
+	column-gap: 75px;
+	flex-wrap: wrap;
 }

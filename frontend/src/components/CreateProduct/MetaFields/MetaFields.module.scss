@@ -1,0 +1,20 @@
+.title {
+	margin-bottom: 35px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.fieldType {
+	flex-grow: 1;
+}
+
+.addField {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.addInput {
+	flex-grow: 1;
+}

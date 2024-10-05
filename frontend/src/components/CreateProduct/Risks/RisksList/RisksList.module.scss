@@ -1,0 +1,102 @@
+.risksList {
+	display: none;
+	position: absolute;
+	top: 120%;
+	background-color: #ffffff;
+	z-index: 1;
+	max-height: 200px;
+	overflow-y: auto;
+	flex-direction: column;
+	min-width: 300px;
+	padding: 15px 30px;
+	border-radius: 5px;
+	align-items: start;
+	gap: 15px;
+	box-shadow: 0px 0px 10px 0px #3a3a3a;
+
+	&::-webkit-scrollbar {
+		width: 7px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #f1f1f1;
+		border-radius: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #888;
+		border-radius: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+
+	label {
+		display: flex;
+		position: relative;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	label input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+
+	span {
+		height: 20px;
+		width: 20px;
+		background-color: #ffffff;
+		border-radius: 5px;
+		border: 1px solid #7a7a7a;
+	}
+
+	label:hover input ~ span {
+		background-color: #ccc;
+	}
+
+	label input:checked ~ span {
+		background-color: #f38a20;
+	}
+
+	span::after,
+	span::before {
+		content: '';
+		position: absolute;
+		display: none;
+	}
+
+	label input:checked ~ span::after,
+	label input:checked ~ span::before {
+		display: block;
+	}
+
+	label span::before {
+		width: 18px;
+		height: 18px;
+		top: 1px;
+		left: 1px;
+		border: 1px solid white;
+		border-radius: 4px;
+	}
+
+	label span::after {
+		left: 8px;
+		top: 5px;
+		width: 5px;
+		height: 9px;
+		border: solid white;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+	}
+}
+
+.active {
+	display: flex;
+}

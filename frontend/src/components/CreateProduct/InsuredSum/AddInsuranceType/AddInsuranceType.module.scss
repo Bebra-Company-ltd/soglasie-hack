@@ -1,0 +1,23 @@
+.addInsuranceType {
+	position: absolute;
+	background-color: #fff;
+	z-index: 2;
+	padding: 15px;
+	border-radius: 10px;
+	border: 1px solid #a5a5a5;
+	flex-wrap: wrap;
+	display: none;
+	width: 100%;
+	top: 130%;
+	gap: 15px;
+}
+
+.insuranceRange {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+}
+
+.active {
+	display: flex;
+}
