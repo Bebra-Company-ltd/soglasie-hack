@@ -32,63 +32,6 @@ public class ContractService {
     public Contract createContract(Contract request) {
         Contract contract = new Contract();
 
-        System.out.println(request);
-
-        // Получение продукта из базы данных
-//        Optional<Product> product = productRepository.findById(request.getProductId().getId());
-//        if (product.isEmpty()) {
-//            throw new RuntimeException("Product not found");
-//        }
-
-        // Копируем риски, чтобы избежать проблемы с разделением ссылок
-//        List<Risk> copiedRisks = new ArrayList<>();
-//        for (Risk risk : product.get().getRisks()) {
-//            Risk copiedRisk = new Risk();
-//            copiedRisk.setName(risk.getName());
-//            copiedRisk.setPremium(risk.getPremium());
-//            copiedRisk.setInsuranceSum(risk.getInsuranceSum());
-//            // Привязку к контракту делаем позже
-//            copiedRisks.add(copiedRisk);
-//        }
-
-//        LocalDate startDate = request.getDateBegin().toLocalDate();
-//        LocalDate endDate = request.getDateEnd().toLocalDate();
-//
-//        long days = ChronoUnit.DAYS.between(startDate, endDate);
-//
-//        Double additionalTariffsTotalSum = 0.0;
-//
-//        for (AdditionalTariff additionalTariff : request.getAdditionalTariffs()) {
-//            additionalTariffsTotalSum += additionalTariff.getTotalInsuranceSum();
-//        }
-//
-//        Tariff tariff = request.getTariff();
-//
-//        tariff.setInsuranceSum(additionalTariffsTotalSum * tariff.getRate());
-//
-////        Double totalPercentForDays = days * product.get().getPercentForDay();
-//
-//        Double totalPercentForRisks = 0.0;
-//
-//        Double totalPercentForMetafields = 0.0;
-//
-//        for (Risk risk : request.getRisks()) {
-//            totalPercentForRisks += risk.getRate();
-//        }
-//
-//        for (ProductMetafield productMetafield : request.getProductMetafields()) {
-//            totalPercentForMetafields += productMetafield.getRate();
-//        }
-//
-////        Double premium = tariff.getInsuranceSum() + (totalPercentForMetafields + totalPercentForRisks +
-////                totalPercentForDays) * additionalTariffsTotalSum;
-//
-//        Agent agent = agentRepository.findById(request.getAgentId().getId()).get();
-
-//        Double rate = (totalPercentForRisks + agent.getAgentAgreement().getRate()) * premium;
-
-
-        // Установка данных контракта
         contract.setDateCreate(request.getDateCreate());
         contract.setDateSign(request.getDateSign());
         contract.setProductId(request.getProductId());
@@ -108,12 +51,6 @@ public class ContractService {
         contract.setOwnerId(request.getOwnerId());
         contract.setInsuranceSum(request.getInsuranceSum());
 
-        // Привязываем скопированные риски к контракту
-//        for (Risk copiedRisk : copiedRisks) {
-//            copiedRisk.setContractId(contract);
-//        }
-
-        // Сохраняем контракт
         return contractRepository.save(contract);
     }
 
