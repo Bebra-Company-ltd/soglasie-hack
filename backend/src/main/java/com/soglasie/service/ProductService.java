@@ -89,7 +89,7 @@ public class ProductService {
             }
         }
 
-        return productRepository.save(product); // Теперь сохраняем основной продукт
+        return productRepository.save(product);
     }
 
 }

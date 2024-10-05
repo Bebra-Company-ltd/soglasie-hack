@@ -1,8 +1,6 @@
 package com.soglasie.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonView;
 import com.soglasie.enums.Type;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,7 +21,7 @@ public class Face {
     private Type type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonBackReference// Не сериализуем агента в лице
+    @JsonBackReference
     private Agent agent;
 
     @Column(name = "first_name")

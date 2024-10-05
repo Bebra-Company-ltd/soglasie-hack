@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -87,22 +86,17 @@ public class AgentService {
         Agent agent = agentAnaliticsModel.getAgent();
         Date dateBegin = agentAnaliticsModel.getDateBegin();
         Date dateEnd = agentAnaliticsModel.getDateEnd();
-        // Проверка на наличие обязательного параметра (агента)
         if (agent == null) {
             throw new IllegalArgumentException("Agent must not be null");
         }
 
-        // Получаем контракты, заключенные указанным агентом
         List<Contract> contracts = contractRepository.findByAgentId(agent);
 
-        // Фильтруем контракты по критериям
         return contracts.stream()
                 .filter(contract -> {
-                    // Проверяем, что контракт активен в заданный период
                     boolean isActiveInPeriod = (contract.getDateBegin().compareTo(dateEnd) <= 0) &&
                             (contract.getDateEnd().compareTo(dateBegin) >= 0);
 
-                    // Проверяем, что статус контракта - "ДЕЙСТВУЕТ"
                     boolean isStatusActive = contract.getStatus() == Status.SIGNED;
 
                     return isActiveInPeriod && isStatusActive;

@@ -28,7 +28,7 @@ public class Tariff {
     @JsonBackReference
     private Product product;
 
-    @ElementCollection(fetch = FetchType.EAGER)  // Загрузка немедленная
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "tariff_options", joinColumns = @JoinColumn(name = "id"))
     @Column(name = "options")
     private List<String> options;

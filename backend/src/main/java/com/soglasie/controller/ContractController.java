@@ -1,9 +1,6 @@
 package com.soglasie.controller;
 
-import com.soglasie.entity.Agent;
 import com.soglasie.entity.Contract;
-import com.soglasie.entity.Product;
-import com.soglasie.enums.LineOfBusiness;
 import com.soglasie.model.ContractAnaliticsModel;
 import com.soglasie.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,5 @@
 package com.soglasie.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.soglasie.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -27,7 +25,6 @@ public class Contract {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "products_id", nullable = false)
-//    @JsonBackReference
     private Product productId;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)

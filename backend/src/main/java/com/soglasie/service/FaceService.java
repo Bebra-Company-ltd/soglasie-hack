@@ -1,6 +1,5 @@
 package com.soglasie.service;
 
-import com.soglasie.entity.Agent;
 import com.soglasie.entity.Face;
 import com.soglasie.repository.AgentRepository;
 import com.soglasie.repository.FaceRepository;
@@ -15,9 +14,6 @@ public class FaceService {
 
     @Autowired
     private FaceRepository faceRepository;
-
-    @Autowired
-    private AgentRepository agentRepository;
 
     public Face createFace(Face faceRequest) {
         return faceRepository.save(faceRequest);
